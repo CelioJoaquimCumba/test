@@ -10,6 +10,9 @@
       />
     </div>
   </div>
+  <div>
+    <TextInput />
+  </div>
 </template>
 
 <script lang="ts">
