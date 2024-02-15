@@ -12,4 +12,14 @@ describe("TextInput.vue", () => {
 
     expect(wrapper.find("input").attributes("placeholder")).toBe(placeholder);
   });
+
+  //Test input insertion
+  it("updates inputValue when input changes", async () => {
+    const wrapper = shallowMount(TextInput);
+    const input = wrapper.find("input");
+
+    await input.setValue("Hey");
+
+    expect(wrapper.find("input").vm.$data.inputValue).toBe("Hey");
+  });
 });
