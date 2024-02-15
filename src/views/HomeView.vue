@@ -3,15 +3,8 @@
     <div
       class="flex flex-col w-1/2 h-1/2 items-center justify-center shadow-md p-8"
     >
-      <ButtonComponent
-        value="Click me"
-        onclick="console.log('clicked')"
-        :loading="true"
-      />
+      <ButtonComponent value="Click me" onclick="console.log('clicked')" />
     </div>
-  </div>
-  <div>
-    <TextInput />
   </div>
 </template>
 

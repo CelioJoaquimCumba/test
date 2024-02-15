@@ -23,13 +23,53 @@ describe("ButtonComponent.vue", () => {
     expect(mockCallBack.mock.calls.length).toBe(1);
   });
 
-  it("loads when props load is true", async () => {
-    const loading = true;
+  it("loads when state is loading", async () => {
     const wrapper = mount(ButtonComponentVue, {
       propsData: {
-        loading,
+        state: "loading",
       },
     });
     expect(wrapper.find("div.animate-spin").exists()).toBe(true);
+  });
+  it("Doesn't load when state is not loading", async () => {
+    const wrapper = mount(ButtonComponentVue, {
+      propsData: {
+        state: "default",
+      },
+    });
+    expect(wrapper.find("div.animate-spin").exists()).toBe(false);
+  });
+  it("denies click when props state is loading", async () => {
+    const mockCallBack = jest.fn();
+    const wrapper = shallowMount(ButtonComponentVue, {
+      propsData: {
+        state: "loading",
+        onClick: mockCallBack,
+      },
+    });
+    wrapper.find("button").trigger("click");
+    expect(mockCallBack.mock.calls.length).toBe(0);
+  });
+  it("allows click when props state is not loading", async () => {
+    const mockCallBack = jest.fn();
+    const wrapper = shallowMount(ButtonComponentVue, {
+      propsData: {
+        state: "default",
+        onClick: mockCallBack,
+      },
+    });
+    wrapper.find("button").trigger("click");
+    expect(mockCallBack.mock.calls.length).toBe(1);
+  });
+  it("Deny click when state is disabled", async () => {
+    const mockCallBack = jest.fn();
+    const wrapper = shallowMount(ButtonComponentVue, {
+      propsData: {
+        state: "disabled",
+        onClick: mockCallBack,
+      },
+    });
+    wrapper.find("button").trigger("click");
+    expect(mockCallBack.mock.calls.length).toBe(0);
   });
 });
