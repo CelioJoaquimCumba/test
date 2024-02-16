@@ -1,16 +1,10 @@
 <template>
   <button
-    class="flex flex-row items-center justify-center border p-4 gap-4 rounded-lg shadow-sm self-stretch text-base"
+    class="flex flex-row items-center bg-background text-foreground justify-center border p-4 gap-4 rounded-md shadow-sm self-stretch text-base"
     :class="{
-      'bg-primary text-primary-foreground':
-        variant === 'primary' && state !== 'disabled',
-      'bg-secondary text-secondary-foreground':
-        variant === 'secondary' && state !== 'disabled',
-      'bg-destructive text-destructive-foreground':
-        variant === 'danger' && state !== 'disabled',
-      'hover:shadow-md hover:opacity-95 active:shadow-none active:opacity-100':
+      'hover:shadow-md active:shadow-none':
         state !== 'loading' && state !== 'disabled',
-      'cursor-not-allowed bg-muted text-muted-foreground': state === 'disabled',
+      'cursor-not-allowed bg-gray-50 text-gray-400': state === 'disabled',
     }"
     @click="state !== 'loading' && state !== 'disabled' && onClick()"
   >
@@ -36,7 +30,12 @@ export default Vue.extend({
       default: "default",
     },
     variant: {
-      type: String as () => "primary" | "secondary" | "danger",
+      type: String as () =>
+        | "primary"
+        | "secondary"
+        | "tertiary"
+        | "danger"
+        | "success",
       default: "primary",
     },
   },
