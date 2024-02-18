@@ -1,5 +1,5 @@
 import { mount, shallowMount } from "@vue/test-utils";
-import ButtonComponentVue from "@/components/ButtonComponent.vue";
+import ButtonComponentVue from "@/components/atoms/ButtonComponent.vue";
 
 describe("ButtonComponent.vue", () => {
   it("renders props.value when passed", () => {

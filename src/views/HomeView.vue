@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import ButtonComponent from "@/components/ButtonComponent.vue";
+import ButtonComponent from "@/components/atoms/ButtonComponent.vue";
 
 export default Vue.extend({
   name: "HomeView",
