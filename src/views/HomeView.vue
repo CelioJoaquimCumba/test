@@ -1,7 +1,19 @@
+<script lang="ts">
+import buttonComponent from "../components/atoms/Button.vue";
+export default {
+  name: "HomeView",
+  components: {
+    buttonComponent,
+  },
+};
+</script>
+
 <template>
-  <div class="flex flex-col w-full h-screen items-center justify-center">
+  <div
+    class="flex w-full h-screen bg-gray-200 justify-center items-center gap-4"
+  >
     <div
-      class="flex flex-col w-1/2 h-1/2 items-center justify-center shadow-md p-8"
+      class="flex flex-col w-full sm:w-auto sm:aspect-[3/2] h-full sm:h-1/2 px-24 justify-center items-center bg-white rounded-2xl"
     >
       <ButtonComponent value="Click me" onclick="console.log('clicked')" />
       <ProgressBar :score="10" :total="100" />
