@@ -5,7 +5,7 @@ import HomeView from "../views/HomeView.vue";
 
 // import ResultView from "@/views/ResultView.vue";
 import LoginView from "@/views/LoginView.vue";
-// import RegisterView from "@/views/RegisterView.vue";
+import RegisterView from "@/views/RegisterView.vue";
 
 import store from "../store";
 import { getUser } from "@/utils/userManager";
@@ -37,11 +37,11 @@ const router = new VueRouter({
       name: "login",
       component: LoginView,
     },
-    // {
-    //   path: "/register",
-    //   name: "register",
-    //   component: RegisterView,
-    // },
+    {
+      path: "/register",
+      name: "register",
+      component: RegisterView,
+    },
   ],
 });
 
