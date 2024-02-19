@@ -14,8 +14,7 @@
           :name="label"
           v-bind="$attrs"
           class="flex flex-grow border-none ring-0 outline-none bg-white bg-opacity-0"
-          :value="value"
-          @input="$emit('input', $event.target?.value)"
+          v-model="inputValue"
           :type="!isPassword || showPassword ? 'text' : 'password'"
         />
         <button
@@ -55,12 +54,24 @@ export default Vue.extend({
   },
   props: {
     label: String,
-    value: String,
+    value: {
+      type: [Number, String],
+    },
     isPassword: Boolean,
     rules: String,
     submitted: {
       type: Boolean,
       default: false,
+    },
+  },
+  computed: {
+    inputValue: {
+      get(this: Vue) {
+        return this.$props.value;
+      },
+      set(this: Vue, value) {
+        this.$emit("input", value);
+      },
     },
   },
 });
